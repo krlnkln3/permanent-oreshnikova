@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Перманент от Алёны Орешниковой — брови, губы</title>
+  <meta name="description" content="Перманентный макияж бровей и губ от Алёны Орешниковой. Естественный результат, гипоаллергенные пигменты, стерильные материалы." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#" class="logo" aria-label="Перманент от Алёны Орешниковой — на главную">
+        <span class="logo__mark">✦</span>
+        <span class="logo__wrap">
+          <span class="logo__text">Алёна Орешникова</span>
+          <span class="logo__tag">перманентный макияж</span>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="Основная навигация">
+        <a href="#procedure" class="nav__link">О процедуре</a>
+        <a href="#catalog" class="nav__link">Услуги</a>
+        <a href="#palette" class="nav__link">Палитра</a>
+        <a href="#about" class="nav__link">Об авторе</a>
+        <a href="#footer" class="nav__link">Запись</a>
+      </nav>
+
+      <div class="header__actions">
+        <div class="search search--header">
+          <svg viewBox="0 0 24 24" class="search__icon" aria-hidden="true"><path d="M21 21l-4.3-4.3M11 19a8 8 0 100-16 8 8 0 000 16z" /></svg>
+          <input type="search" id="searchInput" class="search__input" placeholder="Поиск услуги…" aria-label="Поиск услуги" />
+        </div>
+        <button class="icon-btn" id="cartBtn" aria-label="Мои записи">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6h15l-1.5 9h-12L5 3H2M9 20a1 1 0 100 2 1 1 0 000-2zm9 0a1 1 0 100 2 1 1 0 000-2z"/></svg>
+          <span class="badge" id="cartCount">0</span>
+        </button>
+        <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero__glow"></div>
+    <div class="container hero__inner">
+      <p class="hero__eyebrow">Перманентный макияж · Сертифицированный мастер</p>
+      <h1 class="hero__title"><span class="accent">Перманент,</span><br><span class="accent">о котором знаешь только ты</span></h1>
+      <p class="hero__subtitle">Перманентный макияж бровей и губ. Естественный результат, который экономит ваше время каждое утро. Гипоаллергенные пигменты и стерильные одноразовые материалы.</p>
+      <div class="hero__cta">
+        <a href="#catalog" class="btn btn--gold">Смотреть услуги</a>
+        <a href="#footer" class="btn btn--ghost">Записаться</a>
+      </div>
+      <div class="hero__stats">
+        <div class="stat"><span class="stat__num">300+</span><span class="stat__label">клиентов</span></div>
+        <div class="stat"><span class="stat__num">1 год</span><span class="stat__label">опыта</span></div>
+        <div class="stat"><span class="stat__num">5.0</span><span class="stat__label">рейтинг</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- О процедуре -->
+  <section class="section" id="procedure">
+    <div class="container">
+      <div class="section__head">
+        <h2 class="section__title">О процедуре</h2>
+        <p class="section__sub">Как проходит перманентный макияж — шаг за шагом</p>
+      </div>
+      <div class="steps">
+        <div class="step"><div class="step__num">01</div><h3 class="step__title">Консультация</h3><p class="step__text">Обсуждаем пожелания, форму и оттенок, проверяем противопоказания.</p></div>
+        <div class="step"><div class="step__num">02</div><h3 class="step__title">Эскиз</h3><p class="step__text">Прорисовываю форму карандашом и согласовываю с вами до начала работы.</p></div>
+        <div class="step"><div class="step__num">03</div><h3 class="step__title">Процедура</h3><p class="step__text">Ввожу пигмент. Занимает 1.5–2.5 часа, с анестезией — комфортно.</p></div>
+        <div class="step"><div class="step__num">04</div><h3 class="step__title">Заживление</h3><p class="step__text">7–10 дней. Даю подробную памятку по уходу и остаюсь на связи.</p></div>
+        <div class="step"><div class="step__num">05</div><h3 class="step__title">Коррекция</h3><p class="step__text">Через месяц закрепляем результат и при необходимости правим цвет.</p></div>
+      </div>
+      <div class="procedure__facts">
+        <div class="fact"><span>✦</span> Держится 1–2 года</div>
+        <div class="fact"><span>✦</span> Гипоаллергенные пигменты</div>
+        <div class="fact"><span>✦</span> Стерильные одноразовые материалы</div>
+        <div class="fact"><span>✦</span> Безболезненно с анестезией</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Catalog -->
+  <section class="section section--catalog" id="catalog">
+    <div class="container">
+      <div class="section__head">
+        <h2 class="section__title">Услуги и цены</h2>
+        <p class="section__sub">Выберите услугу, сортируйте и записывайтесь</p>
+      </div>
+
+      <div class="toolbar">
+        <div class="toolbar__right">
+          <div class="search search--mobile">
+            <svg viewBox="0 0 24 24" class="search__icon" aria-hidden="true"><path d="M21 21l-4.3-4.3M11 19a8 8 0 100-16 8 8 0 000 16z" /></svg>
+            <input type="search" id="searchInputMobile" class="search__input" placeholder="Поиск…" aria-label="Поиск" />
+          </div>
+          <label class="select">
+            <span class="select__label">Сортировка</span>
+            <select id="sortSelect" aria-label="Сортировка">
+              <option value="popular">Популярные</option>
+              <option value="price-asc">Сначала дешевле</option>
+              <option value="price-desc">Сначала дороже</option>
+              <option value="rating">По рейтингу</option>
+              <option value="new">Новинки</option>
+            </select>
+          </label>
+        </div>
+      </div>
+
+      <p class="results" id="results"></p>
+      <div class="grid" id="grid"><!-- JS --></div>
+      <div class="empty" id="empty" hidden>
+        <p>Ничего не найдено. Попробуйте изменить запрос или фильтр.</p>
+        <button class="btn btn--ghost" id="resetBtn">Сбросить фильтры</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Палитра -->
+  <section class="section" id="palette">
+    <div class="container">
+      <div class="section__head">
+        <h2 class="section__title">Палитра</h2>
+        <p class="section__sub">Оттенки пигментов — подбираю индивидуально под ваш цветотип</p>
+      </div>
+      <div class="palette" id="paletteGrid"><!-- JS --></div>
+      <p class="palette__note">Финальный оттенок раскрывается после заживления и зависит от особенностей кожи. Точный цвет подбираем на консультации.</p>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="section section--about" id="about">
+    <div class="container about">
+      <div class="about__text">
+        <h2 class="section__title">Об авторе</h2>
+        <p>Меня зовут Алёна Орешникова, я сертифицированный мастер перманентного макияжа с опытом более года. Подбираю форму и оттенок индивидуально под ваши черты лица, работаю только стерильными одноразовыми инструментами и сертифицированными пигментами. Моя цель — естественный результат, который подчёркивает вашу природную красоту.</p>
+        <ul class="about__list">
+          <li><span>✦</span> Сертифицированный мастер, опыт более года</li>
+          <li><span>✦</span> Стерильность и только одноразовые материалы</li>
+          <li><span>✦</span> Гипоаллергенные сертифицированные пигменты</li>
+        </ul>
+        <a href="https://vk.com/oreshnikova_pmu" target="_blank" rel="noopener" class="btn btn--gold">Записаться на консультацию</a>
+      </div>
+      <div class="about__art">
+        <img class="about__photo" src="images/author.jpg" alt="Алёна Орешникова — мастер перманентного макияжа">
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" id="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="#" class="logo">
+          <span class="logo__mark">✦</span>
+          <span class="logo__wrap">
+            <span class="logo__text">Алёна Орешникова</span>
+            <span class="logo__tag">перманентный макияж</span>
+          </span>
+        </a>
+        <p>Перманентный макияж бровей и губ. Естественная красота, которая остаётся с вами.</p>
+        <div class="socials">
+          <a href="https://vk.ru/permanent_oreshnikova?fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPOTM2NjE5NzQzMzkyNDU5AAGn4T78R42yJ5lNEOen1-STU26N6eSMhoH562kp2IgfFhN5iTUGvtEVCi8m-6g_aem_5YpSSCH-yqC0R7-ACRvTTA&amp;utm_content=link_in_bio&amp;utm_medium=social&amp;utm_source=ig" target="_blank" rel="noopener" aria-label="ВКонтакте"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M15.07 2H8.93C3.33 2 2 3.33 2 8.93v6.13C2 20.67 3.32 22 8.93 22h6.13c5.6 0 6.93-1.32 6.93-6.93V8.93C22 3.33 20.68 2 15.07 2zm3.07 14.27h-1.45c-.55 0-.71-.44-1.69-1.43-.86-.83-1.22-.93-1.44-.93-.3 0-.39.08-.39.5v1.31c0 .36-.12.57-1.05.57-1.55 0-3.26-.94-4.47-2.68-1.81-2.55-2.31-4.46-2.31-4.85 0-.22.08-.42.5-.42h1.45c.37 0 .51.17.66.57.72 2.09 1.92 3.92 2.42 3.92.19 0 .27-.08.27-.56V11.1c-.06-1.02-.6-1.11-.6-1.47 0-.17.14-.34.37-.34h2.28c.31 0 .43.17.43.54v3.07c0 .31.14.42.23.42.19 0 .34-.11.69-.46 1.07-1.2 1.84-3.05 1.84-3.05.1-.22.28-.42.65-.42h1.45c.44 0 .53.22.44.54-.18.84-1.95 3.34-1.95 3.34-.15.25-.21.36 0 .64.15.21.65.64.98 1.04.62.69 1.09 1.27 1.22 1.67.12.4-.08.6-.49.6z"/></svg></a>
+          <a href="https://www.instagram.com/alyonkaoreshnikova?utm_source=ig_web_button_share_sheet&amp;igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg></a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <h4>Разделы</h4>
+        <a href="#procedure">О процедуре</a>
+        <a href="#catalog">Услуги</a>
+        <a href="#palette">Палитра</a>
+        <a href="#about">Об авторе</a>
+      </div>
+      <div class="footer__col">
+        <h4>Информация</h4>
+        <a href="#about">Об авторе</a>
+        <a href="#" data-article="care">Уход после процедуры</a>
+        <a href="#" data-article="contra">Противопоказания</a>
+        <a href="#" data-reviews>Отзывы</a>
+      </div>
+      <div class="footer__col footer__news">
+        <h4>Запись на процедуру</h4>
+        <p>Оставьте номер — я свяжусь с вами и подберу удобное время.</p>
+        <form class="news" id="newsForm">
+          <input type="tel" required placeholder="Ваш телефон" aria-label="Телефон" />
+          <button class="btn btn--gold" type="submit">Записаться</button>
+        </form>
+        <p class="news__msg" id="newsMsg" hidden>Спасибо! Я свяжусь с вами в ближайшее время.</p>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <span>© 2026 Перманент от Алёны Орешниковой. Все права защищены.</span>
+      <span>Сделано с любовью к деталям</span>
+    </div>
+  </footer>
+
+  <!-- Quick view modal -->
+  <div class="modal" id="modal" hidden>
+    <div class="modal__overlay" data-close></div>
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal__close" data-close aria-label="Закрыть">✕</button>
+      <div class="modal__media" id="modalMedia"></div>
+      <div class="modal__body">
+        <p class="modal__cat" id="modalCat"></p>
+        <h3 class="modal__title" id="modalTitle"></h3>
+        <div class="modal__rating" id="modalRating"></div>
+        <p class="modal__desc" id="modalDesc"></p>
+        <div class="modal__price" id="modalPrice"></div>
+        <div class="modal__actions">
+          <button class="btn btn--gold" id="modalAdd">Записаться</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Shade info modal (палитра) -->
+  <div class="modal" id="shadeModal" hidden>
+    <div class="modal__overlay" data-shade-close></div>
+    <div class="shade-dialog" role="dialog" aria-modal="true" aria-labelledby="shadeTitle">
+      <button class="modal__close" data-shade-close aria-label="Закрыть">✕</button>
+      <div class="shade-dialog__head">
+        <span class="shade-dialog__chip" id="shadeChip"></span>
+        <h3 class="shade-dialog__title" id="shadeTitle"></h3>
+      </div>
+      <div class="shade-dialog__body" id="shadeBody"></div>
+    </div>
+  </div>
+
+  <!-- Article modal (статьи из подвала) -->
+  <div class="modal" id="articleModal" hidden>
+    <div class="modal__overlay" data-article-close></div>
+    <div class="article-dialog" role="dialog" aria-modal="true" aria-labelledby="articleTitle">
+      <button class="modal__close" data-article-close aria-label="Закрыть">✕</button>
+      <h3 class="article-dialog__title" id="articleTitle"></h3>
+      <div class="article-dialog__body" id="articleBody"></div>
+    </div>
+  </div>
+
+  <!-- Reviews modal (отзывы) -->
+  <div class="modal" id="reviewsModal" hidden>
+    <div class="modal__overlay" data-reviews-close></div>
+    <div class="reviews-dialog" role="dialog" aria-modal="true" aria-labelledby="reviewsTitle">
+      <button class="modal__close" data-reviews-close aria-label="Закрыть">✕</button>
+      <h3 class="reviews-dialog__title" id="reviewsTitle">Отзывы</h3>
+      <div class="reviews-summary" id="reviewsSummary"></div>
+      <form class="review-form" id="reviewForm">
+        <div class="review-form__row">
+          <input type="text" id="reviewName" placeholder="Ваше имя" maxlength="40" required aria-label="Ваше имя">
+          <div class="rating-input" id="ratingInput" role="group" aria-label="Ваша оценка"></div>
+        </div>
+        <textarea id="reviewText" placeholder="Поделитесь впечатлениями…" maxlength="600" required aria-label="Текст отзыва"></textarea>
+        <button type="submit" class="btn btn--gold">Оставить отзыв</button>
+      </form>
+      <div class="reviews-list" id="reviewsList"></div>
+    </div>
+  </div>
+
+  <!-- Cart popover -->
+  <div class="cartbox" id="cartBox" hidden>
+    <div class="cartbox__overlay" data-cart-close></div>
+    <div class="cartbox__panel" role="dialog" aria-modal="true" aria-label="Мои записи">
+      <div class="cartbox__head">
+        <h4 class="cartbox__title">Мои записи</h4>
+        <button class="cartbox__close" data-cart-close aria-label="Закрыть">✕</button>
+      </div>
+      <div class="cartbox__list" id="cartList"></div>
+      <div class="cartbox__foot">
+        <div class="cartbox__total"><span>Итого</span><span id="cartTotal">0 ₽</span></div>
+        <button class="btn btn--gold" id="cartCheckout">Оформить запись</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast" hidden></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
