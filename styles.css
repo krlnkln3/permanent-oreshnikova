@@ -235,7 +235,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 
 /* ===== Footer ===== */
 .footer{border-top:1px solid var(--line);margin-top:2rem;background:rgba(8,26,51,.5)}
-.footer__inner{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.4fr;gap:2rem;padding-top:3.5rem;padding-bottom:2.5rem}
+.footer__inner{display:grid;grid-template-columns:1.8fr 1fr 1fr;gap:2rem;padding-top:3.5rem;padding-bottom:2.5rem}
 .footer__brand p{color:var(--muted);margin:1rem 0;max-width:300px;font-size:.92rem}
 .socials{display:flex;gap:.6rem}
 .socials a{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font-size:.8rem;font-weight:600;color:var(--gold-300);transition:.2s}
