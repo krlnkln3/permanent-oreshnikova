@@ -645,9 +645,19 @@
         <button class="cart-item__del" data-del="${p.id}" aria-label="Удалить">✕</button>
       </div>`;
     }).join('');
-    const total = state.cart.reduce((s, id) => s + (byId(id)?.price || 0), 0);
-    const hasFrom = state.cart.some((id) => byId(id)?.from);
-    $('#cartTotal').textContent = (hasFrom ? 'от ' : '') + fmt(total);
+    const items = state.cart.map((id) => byId(id)).filter(Boolean);
+    const total = items.reduce((s, p) => s + (p.price || 0), 0);
+    const hasFrom = items.some((p) => p.from);
+    const hasText = items.some((p) => p.priceText);
+    let label;
+    if (total > 0) {
+      label = (hasFrom ? 'от ' : '') + fmt(total) + (hasText ? ' + по договорённости' : '');
+    } else if (hasText) {
+      label = 'по договорённости';
+    } else {
+      label = fmt(0);
+    }
+    $('#cartTotal').textContent = label;
     list.querySelectorAll('[data-del]').forEach((b) =>
       b.addEventListener('click', () => removeFromCart(+b.dataset.del)));
   }
