@@ -13,9 +13,9 @@
   // price — стоимость процедуры, ₽
   const PRODUCTS = [
     { id: 1, name: 'Перманент бровей в технике «окрашивание»', cat: 'brows', glyph: '🌫️', image: 'images/brows-1.jpg', price: 8000, from: true, old: null, rating: 5.0, reviews: 93, badge: 'Хит', new: false },
-    { id: 2, name: 'Трихопигментация', cat: 'head', glyph: '🪶', image: 'images/head-1.jpg', price: 10000, from: true, old: null, rating: 4.9, reviews: 50, badge: null, new: true },
+    { id: 2, name: 'Трихопигментация', cat: 'head', glyph: '🪶', image: 'images/head-1.jpg', price: 15000, from: true, old: null, rating: 4.9, reviews: 50, badge: null, new: true },
     { id: 5, name: 'Натуральный перманент губ', cat: 'lips', glyph: '💋', image: 'images/lips-1.jpg', price: 9000, from: true, old: null, rating: 5.0, reviews: 120, badge: 'Хит', new: false },
-    { id: 6, name: 'Коррекция', cat: 'any', glyph: '💄', image: 'images/correction-1.jpg', price: 5000, from: true, old: null, rating: 4.8, reviews: 30, badge: null, new: false },
+    { id: 6, name: 'Коррекция', cat: 'any', glyph: '💄', image: 'images/correction-1.jpg', price: 0, priceText: 'по договорённости', old: null, rating: 4.8, reviews: 30, badge: null, new: false },
   ];
 
   const DESCRIPTIONS = {
@@ -321,7 +321,7 @@
     try { localStorage.setItem(key, JSON.stringify(val)); } catch (e) {}
   }
   const fmt = (n) => n.toLocaleString('ru-RU') + ' ₽';
-  const priceLabel = (p) => (p.from ? 'от ' : '') + fmt(p.price);
+  const priceLabel = (p) => p.priceText ? p.priceText : (p.from ? 'от ' : '') + fmt(p.price);
   const $ = (s, r = document) => r.querySelector(s);
   const stars = (r) => '★'.repeat(Math.round(r)) + '☆'.repeat(5 - Math.round(r));
   const byId = (id) => PRODUCTS.find((p) => p.id === id);
