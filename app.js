@@ -14,7 +14,7 @@
   const PRODUCTS = [
     { id: 1, name: 'Перманент бровей в технике «окрашивание»', cat: 'brows', glyph: '🌫️', image: 'images/brows-1.jpg', price: 8000, old: 10000, rating: 5.0, reviews: 93, badge: 'Хит', new: false },
     { id: 2, name: 'Трихопигментация', cat: 'head', glyph: '🪶', image: 'images/head-1.jpg', price: 10000, from: true, old: null, rating: 4.9, reviews: 50, badge: null, new: true },
-    { id: 5, name: 'Натуральный перманент губ', cat: 'lips', glyph: '💋', image: 'images/lips-1.jpg', price: 9000, old: 11000, rating: 5.0, reviews: 120, badge: 'Хит', new: false },
+    { id: 5, name: 'Натуральный перманент губ', cat: 'lips', glyph: '💋', image: 'images/lips-1.jpg', price: 9000, from: true, old: null, rating: 5.0, reviews: 120, badge: 'Хит', new: false },
     { id: 6, name: 'Коррекция', cat: 'any', glyph: '💄', image: 'images/correction-1.jpg', price: 5000, from: true, old: null, rating: 4.8, reviews: 30, badge: null, new: false },
   ];
 
