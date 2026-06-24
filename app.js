@@ -738,6 +738,42 @@
       renderReviews();
       toast('Спасибо за ваш отзыв!');
     });
+    // Анкета для записи (Web3Forms → на почту)
+    const bookingForm = $('#bookingForm');
+    if (bookingForm) {
+      bookingForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const key = (bookingForm.querySelector('[name="access_key"]') || {}).value || '';
+        if (!key || key === 'YOUR_ACCESS_KEY_HERE') {
+          toast('Форма ещё не подключена к почте');
+          return;
+        }
+        if (!bookingForm.reportValidity()) return;
+        const btn = $('#bookingSubmit');
+        const orig = btn.textContent;
+        btn.disabled = true;
+        btn.textContent = 'Отправляю…';
+        try {
+          const res = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            body: new FormData(bookingForm),
+          });
+          const data = await res.json().catch(() => ({}));
+          if (res.ok && data.success) {
+            bookingForm.reset();
+            toast('Спасибо! Анкета отправлена — Алёна свяжется с вами.');
+          } else {
+            toast('Не удалось отправить. Напишите, пожалуйста, в ВКонтакте.');
+          }
+        } catch (_) {
+          toast('Нет связи. Проверьте интернет и попробуйте снова.');
+        } finally {
+          btn.disabled = false;
+          btn.textContent = orig;
+        }
+      });
+    }
+
     $('#modalAdd').addEventListener('click', () => { if (currentModalId) addToCart(currentModalId); });
 
     // header scroll

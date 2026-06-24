@@ -27,7 +27,7 @@
         <a href="#catalog" class="nav__link">Услуги</a>
         <a href="#palette" class="nav__link">Палитра</a>
         <a href="#about" class="nav__link">Об авторе</a>
-        <a href="#footer" class="nav__link">Запись</a>
+        <a href="#booking" class="nav__link">Запись</a>
       </nav>
 
       <div class="header__actions">
@@ -53,7 +53,7 @@
       <p class="hero__subtitle">Перманентный макияж бровей и губ. Естественный результат, который экономит ваше время каждое утро. Гипоаллергенные пигменты и стерильные одноразовые материалы.</p>
       <div class="hero__cta">
         <a href="#catalog" class="btn btn--gold">Смотреть услуги</a>
-        <a href="#footer" class="btn btn--ghost">Записаться</a>
+        <a href="#booking" class="btn btn--ghost">Записаться</a>
       </div>
       <div class="hero__stats">
         <div class="stat"><span class="stat__num">300+</span><span class="stat__label">клиентов</span></div>
@@ -150,6 +150,67 @@
       <div class="about__art">
         <img class="about__photo" src="images/author.jpg" alt="Алёна Орешникова — мастер перманентного макияжа">
       </div>
+    </div>
+  </section>
+
+  <!-- Анкета для записи -->
+  <section class="section section--booking" id="booking">
+    <div class="container">
+      <div class="section__head">
+        <h2 class="section__title">Анкета для записи</h2>
+        <p class="section__sub">Заполните — и Алёна свяжется с вами, чтобы подобрать время и ответить на вопросы</p>
+      </div>
+      <form class="booking" id="bookingForm" novalidate>
+        <!-- Web3Forms: служебные поля (доставка анкеты на почту) -->
+        <input type="hidden" name="access_key" value="fd08baef-401b-47ed-862a-1b23c78809ef">
+        <input type="hidden" name="subject" value="Новая анкета с сайта severodvinsk-pmu.ru">
+        <input type="hidden" name="from_name" value="Сайт · Перманент Алёны Орешниковой">
+        <input type="checkbox" name="botcheck" class="booking__honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <div class="booking__grid">
+          <label class="field">
+            <span class="field__label">Ваше имя *</span>
+            <input class="field__input" type="text" name="Имя" maxlength="60" required placeholder="Как к вам обращаться">
+          </label>
+          <label class="field">
+            <span class="field__label">Телефон *</span>
+            <input class="field__input" type="tel" name="Телефон" maxlength="30" required placeholder="+7 ___ ___-__-__">
+          </label>
+          <label class="field">
+            <span class="field__label">Интересует процедура</span>
+            <select class="field__input" name="Процедура">
+              <option value="Пока не определилась">Пока не определилась</option>
+              <option value="Перманент бровей">Перманент бровей</option>
+              <option value="Натуральный перманент губ">Натуральный перманент губ</option>
+              <option value="Трихопигментация">Трихопигментация</option>
+              <option value="Коррекция">Коррекция</option>
+            </select>
+          </label>
+          <label class="field">
+            <span class="field__label">Удобный способ связи</span>
+            <select class="field__input" name="Способ связи">
+              <option value="Телефонный звонок">Телефонный звонок</option>
+              <option value="ВКонтакте">ВКонтакте</option>
+            </select>
+          </label>
+          <label class="field field--wide">
+            <span class="field__label">Удобная дата и время <span class="field__opt">(по желанию)</span></span>
+            <input class="field__input" type="text" name="Удобное время" maxlength="100" placeholder="Например: будни после 17:00 или выходные днём">
+          </label>
+          <label class="field field--wide">
+            <span class="field__label">Комментарий, вопросы, противопоказания <span class="field__opt">(по желанию)</span></span>
+            <textarea class="field__input field__textarea" name="Сообщение" maxlength="800" placeholder="Расскажите о пожеланиях или задайте вопрос"></textarea>
+          </label>
+        </div>
+
+        <label class="booking__consent">
+          <input type="checkbox" id="bookingConsent" required>
+          <span>Я согласен(на) на обработку персональных данных и ознакомлен(а) с условиями.</span>
+        </label>
+
+        <button type="submit" class="btn btn--gold booking__submit" id="bookingSubmit">Отправить анкету</button>
+        <p class="booking__hint">Данные отправляются напрямую мастеру и не передаются третьим лицам.</p>
+      </form>
     </div>
   </section>
 
