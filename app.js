@@ -459,17 +459,32 @@
   }
 
   // --- Запись (выбранные услуги) ---
+  // Сопоставление категории услуги с пунктом списка «Интересует процедура» в анкете
+  const CAT_TO_PROCEDURE = {
+    brows: 'Перманент бровей',
+    head: 'Трихопигментация',
+    lips: 'Натуральный перманент губ',
+    any: 'Коррекция',
+  };
+  function goToBooking(p) {
+    closeModal();
+    const sel = $('#procedureSelect');
+    if (sel && CAT_TO_PROCEDURE[p.cat]) sel.value = CAT_TO_PROCEDURE[p.cat];
+    const booking = document.getElementById('booking');
+    if (booking) booking.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
   function addToCart(id) {
-    if (state.cart.includes(id)) {
-      const p = byId(id);
-      toast(`«${p.name}» уже в записи`);
-      return;
-    }
-    state.cart.push(id);
-    save('aoresh_cart', state.cart);
-    updateBadges();
     const p = byId(id);
-    toast(`«${p.name}» добавлена к записи`);
+    if (!p) return;
+    if (state.cart.includes(id)) {
+      toast(`«${p.name}» уже в записи`);
+    } else {
+      state.cart.push(id);
+      save('aoresh_cart', state.cart);
+      updateBadges();
+      toast(`«${p.name}» добавлена к записи`);
+    }
+    goToBooking(p);
   }
   function updateBadges() {
     setBadge('#cartCount', state.cart.length);
