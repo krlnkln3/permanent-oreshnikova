@@ -754,9 +754,12 @@
         btn.disabled = true;
         btn.textContent = 'Отправляю…';
         try {
+          const payload = {};
+          new FormData(bookingForm).forEach((v, k) => { payload[k] = v; });
           const res = await fetch('https://api.web3forms.com/submit', {
             method: 'POST',
-            body: new FormData(bookingForm),
+            headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+            body: JSON.stringify(payload),
           });
           const data = await res.json().catch(() => ({}));
           if (res.ok && data.success) {
