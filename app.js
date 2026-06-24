@@ -309,7 +309,6 @@
     cat: 'all',
     query: '',
     sort: 'popular',
-    cart: load('aoresh_cart', []),
   };
 
   // --- Helpers ---
@@ -433,7 +432,7 @@
     }).join('');
 
     grid.querySelectorAll('[data-add]').forEach((b) =>
-      b.addEventListener('click', () => addToCart(+b.dataset.add)));
+      b.addEventListener('click', () => goToBooking(byId(+b.dataset.add))));
     grid.querySelectorAll('[data-quick]').forEach((b) =>
       b.addEventListener('click', () => openModal(+b.dataset.quick)));
     // если файла фото нет — откатываемся на эмодзи
@@ -467,32 +466,12 @@
     any: 'Коррекция',
   };
   function goToBooking(p) {
+    if (!p) return;
     closeModal();
     const sel = $('#procedureSelect');
     if (sel && CAT_TO_PROCEDURE[p.cat]) sel.value = CAT_TO_PROCEDURE[p.cat];
     const booking = document.getElementById('booking');
     if (booking) booking.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
-  function addToCart(id) {
-    const p = byId(id);
-    if (!p) return;
-    if (state.cart.includes(id)) {
-      toast(`«${p.name}» уже в записи`);
-    } else {
-      state.cart.push(id);
-      save('aoresh_cart', state.cart);
-      updateBadges();
-      toast(`«${p.name}» добавлена к записи`);
-    }
-    goToBooking(p);
-  }
-  function updateBadges() {
-    setBadge('#cartCount', state.cart.length);
-  }
-  function setBadge(sel, n) {
-    const el = $(sel);
-    el.textContent = n;
-    el.classList.toggle('show', n > 0);
   }
 
   // --- Modal ---
@@ -524,14 +503,6 @@
     currentModalId = null;
   }
 
-  // --- Cart popover (Мои записи) ---
-  function openCart() {
-    renderCart();
-    $('#cartBox').hidden = false;
-  }
-  function closeCart() {
-    $('#cartBox').hidden = true;
-  }
 
   // --- Shade info modal (палитра) ---
   function openShade(color) {
@@ -633,49 +604,6 @@
     $('#reviewsModal').hidden = true;
     document.body.style.overflow = '';
   }
-  function removeFromCart(id) {
-    const i = state.cart.indexOf(id);
-    if (i === -1) return;
-    state.cart.splice(i, 1);
-    save('aoresh_cart', state.cart);
-    updateBadges();
-    renderCart();
-  }
-  function renderCart() {
-    const list = $('#cartList');
-    if (!state.cart.length) {
-      list.innerHTML = '<p class="cartbox__empty">Список записи пуст.<br>Добавьте услугу кнопкой «Записаться».</p>';
-      $('#cartTotal').textContent = fmt(0);
-      return;
-    }
-    list.innerHTML = state.cart.map((id) => {
-      const p = byId(id);
-      if (!p) return '';
-      return `<div class="cart-item">
-        <span class="cart-item__glyph">${p.glyph}</span>
-        <div class="cart-item__info">
-          <div class="cart-item__name">${p.name}</div>
-          <div class="cart-item__price">${priceLabel(p)}</div>
-        </div>
-        <button class="cart-item__del" data-del="${p.id}" aria-label="Удалить">✕</button>
-      </div>`;
-    }).join('');
-    const items = state.cart.map((id) => byId(id)).filter(Boolean);
-    const total = items.reduce((s, p) => s + (p.price || 0), 0);
-    const hasFrom = items.some((p) => p.from);
-    const hasText = items.some((p) => p.priceText);
-    let label;
-    if (total > 0) {
-      label = (hasFrom ? 'от ' : '') + fmt(total) + (hasText ? ' + по договорённости' : '');
-    } else if (hasText) {
-      label = 'по договорённости';
-    } else {
-      label = fmt(0);
-    }
-    $('#cartTotal').textContent = label;
-    list.querySelectorAll('[data-del]').forEach((b) =>
-      b.addEventListener('click', () => removeFromCart(+b.dataset.del)));
-  }
 
   // --- Toast ---
   let toastTimer;
@@ -710,22 +638,9 @@
       renderGrid();
     });
 
-    $('#cartBtn').addEventListener('click', openCart);
-    $('#cartBox').addEventListener('click', (e) => { if (e.target.dataset.cartClose !== undefined) closeCart(); });
-    $('#cartCheckout').addEventListener('click', () => {
-      const items = state.cart.map((id) => byId(id)).filter(Boolean);
-      if (items.length) {
-        const msg = 'Здравствуйте! Хочу записаться на: ' + items.map((p) => p.name).join(', ') + '.';
-        copyText(msg)
-          .then(() => toast('Список услуг скопирован — вставьте в сообщение (⌘/Ctrl+V)'))
-          .catch(() => {});
-      }
-      closeCart();
-      window.open('https://vk.com/write-232344666', '_blank', 'noopener');
-    });
     // modal
     $('#modal').addEventListener('click', (e) => { if (e.target.dataset.close !== undefined) closeModal(); });
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') { closeModal(); closeCart(); closeShade(); closeArticle(); closeReviews(); } });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') { closeModal(); closeShade(); closeArticle(); closeReviews(); } });
 
     // shade modal
     $('#shadeModal').addEventListener('click', (e) => { if (e.target.dataset.shadeClose !== undefined) closeShade(); });
@@ -808,7 +723,7 @@
       });
     }
 
-    $('#modalAdd').addEventListener('click', () => { if (currentModalId) addToCart(currentModalId); });
+    $('#modalAdd').addEventListener('click', () => { if (currentModalId) goToBooking(byId(currentModalId)); });
 
     // header scroll
     window.addEventListener('scroll', () => {
@@ -825,6 +740,5 @@
   // --- Init ---
   renderPalette();
   renderGrid();
-  updateBadges();
   bind();
 })();

@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=5" />
+  <link rel="stylesheet" href="styles.css?v=6" />
 </head>
 <body>
   <!-- Header -->
@@ -35,10 +35,6 @@
           <svg viewBox="0 0 24 24" class="search__icon" aria-hidden="true"><path d="M21 21l-4.3-4.3M11 19a8 8 0 100-16 8 8 0 000 16z" /></svg>
           <input type="search" id="searchInput" class="search__input" placeholder="Поиск услуги…" aria-label="Поиск услуги" />
         </div>
-        <button class="icon-btn" id="cartBtn" aria-label="Мои записи">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6h15l-1.5 9h-12L5 3H2M9 20a1 1 0 100 2 1 1 0 000-2zm9 0a1 1 0 100 2 1 1 0 000-2z"/></svg>
-          <span class="badge" id="cartCount">0</span>
-        </button>
         <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
       </div>
     </div>
@@ -317,25 +313,9 @@
     </div>
   </div>
 
-  <!-- Cart popover -->
-  <div class="cartbox" id="cartBox" hidden>
-    <div class="cartbox__overlay" data-cart-close></div>
-    <div class="cartbox__panel" role="dialog" aria-modal="true" aria-label="Мои записи">
-      <div class="cartbox__head">
-        <h4 class="cartbox__title">Мои записи</h4>
-        <button class="cartbox__close" data-cart-close aria-label="Закрыть">✕</button>
-      </div>
-      <div class="cartbox__list" id="cartList"></div>
-      <div class="cartbox__foot">
-        <div class="cartbox__total"><span>Итого</span><span id="cartTotal">0 ₽</span></div>
-        <button class="btn btn--gold" id="cartCheckout">Оформить запись</button>
-      </div>
-    </div>
-  </div>
-
   <!-- Toast -->
   <div class="toast" id="toast" hidden></div>
 
-  <script src="app.js?v=5"></script>
+  <script src="app.js?v=6"></script>
 </body>
 </html>
