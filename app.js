@@ -741,6 +741,21 @@
     // Анкета для записи (Web3Forms → на почту)
     const bookingForm = $('#bookingForm');
     if (bookingForm) {
+      // Поле «ссылка на профиль ВК» — показываем только при выборе ВКонтакте
+      const contactMethod = $('#contactMethod');
+      const vkField = $('#vkField');
+      const vkInput = vkField ? vkField.querySelector('input') : null;
+      const toggleVk = () => {
+        if (!contactMethod || !vkField || !vkInput) return;
+        const on = contactMethod.value === 'ВКонтакте';
+        vkField.hidden = !on;
+        vkInput.disabled = !on;
+        vkInput.required = on;
+        if (!on) vkInput.value = '';
+      };
+      if (contactMethod) contactMethod.addEventListener('change', toggleVk);
+      toggleVk();
+
       bookingForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         const key = (bookingForm.querySelector('[name="access_key"]') || {}).value || '';
@@ -764,6 +779,7 @@
           const data = await res.json().catch(() => ({}));
           if (res.ok && data.success) {
             bookingForm.reset();
+            toggleVk();
             toast('Спасибо! Анкета отправлена — Алёна свяжется с вами.');
           } else {
             toast('Не удалось отправить. Напишите, пожалуйста, в ВКонтакте.');

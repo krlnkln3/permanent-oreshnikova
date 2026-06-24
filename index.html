@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=3" />
+  <link rel="stylesheet" href="styles.css?v=4" />
 </head>
 <body>
   <!-- Header -->
@@ -188,10 +188,14 @@
           </label>
           <label class="field">
             <span class="field__label">Удобный способ связи</span>
-            <select class="field__input" name="Способ связи">
+            <select class="field__input" name="Способ связи" id="contactMethod">
               <option value="Телефонный звонок">Телефонный звонок</option>
               <option value="ВКонтакте">ВКонтакте</option>
             </select>
+          </label>
+          <label class="field field--wide" id="vkField" hidden>
+            <span class="field__label">Ссылка на ваш профиль ВКонтакте *</span>
+            <input class="field__input" type="text" name="Профиль ВКонтакте" maxlength="120" placeholder="https://vk.com/ваш_профиль" disabled>
           </label>
           <label class="field field--wide">
             <span class="field__label">Удобная дата и время <span class="field__opt">(по желанию)</span></span>
@@ -332,6 +336,6 @@
   <!-- Toast -->
   <div class="toast" id="toast" hidden></div>
 
-  <script src="app.js?v=3"></script>
+  <script src="app.js?v=4"></script>
 </body>
 </html>
